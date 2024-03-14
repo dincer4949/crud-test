@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    Scanner scnr = new Scanner(System.in);
+    static Scanner scnr = new Scanner(System.in);
 
     static String url = "jdbc:postgresql://localhost:5432/postgres"; // table details
     static String username = "postgres";
@@ -47,6 +47,7 @@ public class Main {
         String lastName="";
         Date birthDate=null;
         //ask to user
+        id=scnr.nextInt();
 
 
 
