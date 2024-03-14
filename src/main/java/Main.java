@@ -1,6 +1,9 @@
 import java.sql.*;
+import java.util.Scanner;
 
 public class Main {
+
+    Scanner scnr = new Scanner(System.in);
 
     static String url = "jdbc:postgresql://localhost:5432/postgres"; // table details
     static String username = "postgres";
@@ -39,16 +42,18 @@ public class Main {
     }
 
     public static void setData(){
-        int id ;
-        String firstName;
-        String lastName;
-        Date birthDate;
+        int id=0;
+        String firstName="";
+        String lastName="";
+        Date birthDate=null;
+        //ask to user
+
 
 
         try{
             Connection con = DriverManager.getConnection(myUrl, myUser, myPass);
 
-            PreparedStatement prestmt = con.prepareStatement(String.format("%s",));
+            PreparedStatement prestmt = con.prepareStatement(String.format("INSERT INTO `crud_test`(id,firstName,lastName,birthDate) VALUES (%d,\"%s\",\"%s\",\"%s\") ",id,firstName,lastName,birthDate));
 
         }catch(SQLException e){
             throw new RuntimeException(e);
