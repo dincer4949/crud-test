@@ -15,6 +15,7 @@ public class Main {
     public static void main(String[] args) {
 
         getData();
+        setData();
 
     }
 
@@ -42,26 +43,40 @@ public class Main {
     }
 
     public static void setData(){
-        int id=0;
-        String firstName="";
-        String lastName="";
-        Date birthDate=null;
+
         //ask to user
-        id=scnr.nextInt();
-
-
+        System.out.print("Enter an ID for the new user: ");
+        int id = scnr.nextInt();
+        System.out.print("Enter the firstname of the new user: ");
+        String firstName= scnr.next();
+        System.out.print("Enter the lastname of the new user: ");
+        String lastName= scnr.next();
+        System.out.println("Enter the birthdate of the new user(YYYY-MM-DD: ");
+        String birthDate= scnr.next();
 
         try{
             Connection con = DriverManager.getConnection(myUrl, myUser, myPass);
+            PreparedStatement prestmt = con.prepareStatement("INSERT INTO `crud_test`(id,firstName,lastName,birthDate) VALUES (?,?,?,?) ");
 
-            PreparedStatement prestmt = con.prepareStatement(String.format("INSERT INTO `crud_test`(id,firstName,lastName,birthDate) VALUES (%d,\"%s\",\"%s\",\"%s\") ",id,firstName,lastName,birthDate));
+            prestmt.setInt(1,id);
+            prestmt.setString(2,firstName);
+            prestmt.setString(3,lastName);
+            prestmt.setDate(4,Date.valueOf(birthDate));
+
+            int rowsAffected = prestmt.executeUpdate();
+
+            if (rowsAffected > 0) {
+                System.out.println("The new user created!");
+                System.out.println("-------------------------------------");
+            } else {
+                System.out.println("Failed to create the new user.");
+            }
+
+            getData();
 
         }catch(SQLException e){
             throw new RuntimeException(e);
         }
-
-
-
     }
 
 
