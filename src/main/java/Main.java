@@ -11,8 +11,13 @@ public class Main {
     static String myPass = "dtEtTbcvvi";
     public static void main(String[] args) {
 
+        getData();
+
+    }
+
+    public static void getData(){
         try{
-           // Connection con = DriverManager.getConnection(url, username, password);
+            // Connection con = DriverManager.getConnection(url, username, password);
             Connection con = DriverManager.getConnection(myUrl, myUser, myPass);
 
             PreparedStatement prestmt = con.prepareStatement("SELECT * FROM crud_test");
@@ -20,18 +25,38 @@ public class Main {
 
             while(rs.next()){
                 //main get columns
+                int id = rs.getInt("id");
                 String firstName = rs.getString("firstName");
                 String lastName = rs.getString("lastName");
+                Date birthDate = rs.getDate("birthDate");
 
-                System.out.println(firstName + lastName);
+                System.out.println(id+"|"+firstName +" "+ lastName+ "|" + birthDate);
             }
             // use con here
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
     }
 
+    public static void setData(){
+        int id ;
+        String firstName;
+        String lastName;
+        Date birthDate;
+
+
+        try{
+            Connection con = DriverManager.getConnection(myUrl, myUser, myPass);
+
+            PreparedStatement prestmt = con.prepareStatement(String.format("%s",));
+
+        }catch(SQLException e){
+            throw new RuntimeException(e);
+        }
+
+
+
+    }
 
 
 }
