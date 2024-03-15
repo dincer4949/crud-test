@@ -79,5 +79,13 @@ public class Main {
         }
     }
 
+    public void updateData(){
+        try{
+            Connection con = DriverManager.getConnection(myUrl, myUser, myPass);
+        }catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
 
 }
