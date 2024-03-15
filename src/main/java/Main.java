@@ -1,4 +1,5 @@
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -14,12 +15,13 @@ public class Main {
     static String myPass = "dtEtTbcvvi";
     public static void main(String[] args) {
 
-        getData();
+        System.out.println(getData());
         //setData();
 
     }
+    public static String getData(){
 
-    public static void getData(){
+        ArrayList<String> result = new ArrayList<String>();
         try{
             // Connection con = DriverManager.getConnection(url, username, password);
             Connection con = DriverManager.getConnection(myUrl, myUser, myPass);
@@ -34,12 +36,16 @@ public class Main {
                 String lastName = rs.getString("lastName");
                 Date birthDate = rs.getDate("birthDate");
 
-                System.out.println(id+"|"+firstName +" "+ lastName+ "|" + birthDate);
+                result.add(id+"|"+firstName +" "+ lastName+ "|" + birthDate);
             }
             // use con here
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        for(String r : result ){
+            return r;
+        }
+
     }
 
     public static void setData(){
