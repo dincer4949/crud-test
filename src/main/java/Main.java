@@ -10,18 +10,18 @@ public class Main {
     static String username = "postgres";
     static String password = "dincer1";
     //MySql infos--------------------------------------------------------
-    static String myUrl = "jdbc:mysql://sql3.freesqldatabase.com/sql3690872"; // table details
-    static String myUser = "sql3690872";
-    static String myPass = "dtEtTbcvvi";
+    static String myUrl = "jdbc:mysql://sql3.freesqldatabase.com/sql3692828"; // table details
+    static String myUser = "sql3692828";
+    static String myPass = "BP8fglQUEM";
     public static void main(String[] args) {
 
-        System.out.println(getData());
-        //setData();
+        getData();
+        setData();
 
     }
-    public static String getData(){
+    public static void getData(){
 
-        ArrayList<String> result = new ArrayList<String>();
+        ArrayList<String> results = new ArrayList<String>();
         try{
             // Connection con = DriverManager.getConnection(url, username, password);
             Connection con = DriverManager.getConnection(myUrl, myUser, myPass);
@@ -36,15 +36,19 @@ public class Main {
                 String lastName = rs.getString("lastName");
                 Date birthDate = rs.getDate("birthDate");
 
-                result.add(id+"|"+firstName +" "+ lastName+ "|" + birthDate);
+                results.add(id+"|"+firstName +" "+ lastName+ "|" + birthDate);
             }
+
+            for(String result:results){
+                System.out.println(result);
+            }
+
+
             // use con here
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        for(String r : result ){
-            return r;
-        }
+
 
     }
 
