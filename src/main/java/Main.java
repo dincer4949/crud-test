@@ -14,10 +14,21 @@ public class Main {
     static String myUser = "sql3692828";
     static String myPass = "BP8fglQUEM";
     public static void main(String[] args) {
+        intro();
+    }
+    public static void intro(){
+        System.out.println("-----------------------\n1)Get all datas\n2)Set a data\n3)Remove a data\n4)Quit\nWhat do u wanna do");
+        short choice = scnr.nextShort();
 
-        getData();
-        setData();
-        removeData();
+        switch(choice){
+            case 1:getData();intro();
+                break;
+            case 2:setData();intro();
+                break;
+            case 3:removeData();intro();
+                break;
+            case 4:break;
+        }
 
     }
     public static void getData(){
@@ -62,7 +73,7 @@ public class Main {
         String firstName= scnr.next();
         System.out.print("Enter the lastname of the new user: ");
         String lastName= scnr.next();
-        System.out.println("Enter the birthdate of the new user(YYYY-MM-DD: ");
+        System.out.println("Enter the birthdate of the new user(YYYY-MM-DD): ");
         String birthDate= scnr.next();
 
         try{
@@ -84,6 +95,7 @@ public class Main {
             }
 
             getData();
+            System.out.println("-------------------------------------");
 
         }catch(SQLException e){
             throw new RuntimeException(e);
