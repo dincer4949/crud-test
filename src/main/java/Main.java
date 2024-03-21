@@ -17,6 +17,7 @@ public class Main {
 
         getData();
         setData();
+        removeData();
 
     }
     public static void getData(){
@@ -92,10 +93,41 @@ public class Main {
     public void updateData(){
         try{
             Connection con = DriverManager.getConnection(myUrl, myUser, myPass);
+
+
         }catch (SQLException e){
             throw new RuntimeException(e);
         }
     }
 
+    public static void removeData(){
+        try{
+            Connection con = DriverManager.getConnection(myUrl, myUser, myPass);
+            PreparedStatement prestmt = con.prepareStatement("DELETE FROM crud_test WHERE id=?");
+
+            System.out.println("Please enter the ID of the user who you want to remove: ");
+            int id = scnr.nextInt();
+            prestmt.setInt(1,id);
+
+            System.out.println("Do you really wanna remove that data?(Y/N)");
+            String realDecision=scnr.next();
+            if(realDecision.equalsIgnoreCase("y")){
+                int rowsAffected = prestmt.executeUpdate();
+                if(rowsAffected>0){
+                    System.out.println("The user removed!");
+                    getData();
+                }else{
+                    System.out.println("there is a problem man");
+                    getData();
+                }
+            } else if (realDecision.equalsIgnoreCase("n")) {
+                System.out.println("You were so close man");
+                getData();
+            }
+
+        }catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
 
 }
