@@ -1,14 +1,15 @@
 import java.sql.*;
 
-public class dbData {
+public class DbData {
+    //Database Credentials
     private static String dbUrl; // table details
     private static String dbUser;
     private static String dbPass;
-
+    //Database Index
     private static String header;
     private static String context;
     private static Date date;
-    public dbData(String url, String user, String password) {
+    public DbData(String url, String user, String password) {
         url=dbUrl;
         user=dbUser;
         password=dbPass;
@@ -20,7 +21,7 @@ public class dbData {
         }
     }
 
-    public dbData(){
+    public DbData(){
         dbUrl="jdbc:mysql://avnadmin:AVNS_b1GW5bgz7-zCbovjbiz@approject-dannyzincher-a05d.b.aivencloud.com:28101/defaultdb?ssl-mode=REQUIRED";
         dbUser="avnadmin";
         dbPass="AVNS_b1GW5bgz7-zCbovjbiz";
