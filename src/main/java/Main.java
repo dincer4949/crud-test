@@ -10,9 +10,9 @@ public class Main {
     static String username = "postgres";
     static String password = "dincer1";
     //MySql infos--------------------------------------------------------
-    static String myUrl = "jdbc:mysql://sql3.freesqldatabase.com/sql3692828"; // table details
-    static String myUser = "sql3692828";
-    static String myPass = "BP8fglQUEM";
+    private static String myUrl = "jdbc:mysql://avnadmin:AVNS_b1GW5bgz7-zCbovjbiz@approject-dannyzincher-a05d.b.aivencloud.com:28101/defaultdb?ssl-mode=REQUIRED"; // table details
+    private static String myUser = "avnadmin";
+    private static String myPass = "AVNS_b1GW5bgz7-zCbovjbiz";
     public static void main(String[] args) {
         intro();
     }
