@@ -1,4 +1,6 @@
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DbData {
     //Database Credentials
@@ -9,7 +11,11 @@ public class DbData {
     private static String header;
     private static String context;
     private static Date date;
-    public DbData(String url, String user, String password) {
+
+    private List<String> headers;
+    private List<String> contexts;
+    private List<Date> dates;
+   /* public DbData(String url, String user, String password) {
         url=dbUrl;
         user=dbUser;
         password=dbPass;
@@ -19,9 +25,14 @@ public class DbData {
         }catch (SQLException e){
             System.out.println(e);
         }
-    }
+    }*/
 
     public DbData(){
+
+        headers = new ArrayList<>();
+        contexts = new ArrayList<>();
+        dates = new ArrayList<>();
+
         dbUrl="jdbc:mysql://avnadmin:AVNS_b1GW5bgz7-zCbovjbiz@approject-dannyzincher-a05d.b.aivencloud.com:28101/defaultdb?ssl-mode=REQUIRED";
         dbUser="avnadmin";
         dbPass="AVNS_b1GW5bgz7-zCbovjbiz";
@@ -32,9 +43,10 @@ public class DbData {
             ResultSet rs = prestmt.executeQuery();
             while(rs.next()){
 
-                header = rs.getString("header");
-                context = rs.getString("context");
-                date = rs.getDate("date");
+                headers.add(rs.getString("header"));
+                contexts.add (rs.getString("context"));
+                dates.add( rs.getDate("date"));
+
 
             }
         }catch (SQLException e){
@@ -42,8 +54,8 @@ public class DbData {
         }
     }
 
-    public String getHeader(){
-        return header;
+    public String getHeader(int index){
+        return headers.get(index);
     }
 
     public String getContext(){

@@ -15,12 +15,7 @@ public class Main {
     private static String myPass = "AVNS_b1GW5bgz7-zCbovjbiz";
     public static void main(String[] args) {
 
-        DbData madb = new DbData();
-
-        System.out.println(madb.getHeader());
-        System.out.println(madb.getContext());
-        System.out.println(madb.getDate());
-
+      daWindow.start();
     }
     public static void intro(){
         System.out.println("-----------------------\n1)Get all datas\n2)Set a data\n3)Remove a data\n4)Quit\nWhat do u wanna do");
