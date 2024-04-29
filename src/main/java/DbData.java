@@ -15,6 +15,7 @@ public class DbData {
     private List<String> headers;
     private List<String> contexts;
     private List<Date> dates;
+    private List<Integer> ids;
    /* public DbData(String url, String user, String password) {
         url=dbUrl;
         user=dbUser;
@@ -32,6 +33,7 @@ public class DbData {
         headers = new ArrayList<>();
         contexts = new ArrayList<>();
         dates = new ArrayList<>();
+        ids = new ArrayList<>();
 
         dbUrl="jdbc:mysql://avnadmin:AVNS_b1GW5bgz7-zCbovjbiz@approject-dannyzincher-a05d.b.aivencloud.com:28101/defaultdb?ssl-mode=REQUIRED";
         dbUser="avnadmin";
@@ -58,15 +60,13 @@ public class DbData {
         return headers.get(index);
     }
 
-    public String getContext(){
-        return context;
+    public String getContext(int index){
+        return contexts.get(index);
     }
-    public Date getDate(){
-        return date;
+    public Date getDate(int index){
+        return dates.get(index);
     }
-   /* public Date getId(){
-        return id;
-    }*/
+   public Integer getId(int index){return ids.get(index);}
     public int getHeaderListSize(){
         return headers.size();
     }
