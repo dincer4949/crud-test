@@ -64,6 +64,12 @@ public class DbData {
     public Date getDate(){
         return date;
     }
+   /* public Date getId(){
+        return id;
+    }*/
+    public int getHeaderListSize(){
+        return headers.size();
+    }
 
     public void setHeader(String newHeader){
         try{

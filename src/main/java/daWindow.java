@@ -5,21 +5,17 @@ public class daWindow {
 
     public static void start(){
         JFrame w = new JFrame("test");
-        JTextField header = new JTextField();
+        JTextArea tArea = new JTextArea();
         DbData db = new DbData();
         w.setSize(400,400);
-        w.add(header);
 
-        ArrayList<String> headers = new ArrayList<String>();
-
-        for (int i = 0; i < 2; i++) {
-            headers.add(db.getHeader(i));
+        for (int i = 0; i < db.getHeaderListSize(); i++) {
+            String header = db.getHeader(i);
+            tArea.append("Header " + i + ": " + header + "\n");
         }
+        tArea.setEditable(false);
 
-        for(String h : headers){
-            header.setText(h);
-        }
-
+        w.add(tArea);
         w.isEnabled();
         w.setVisible(true);
     }
