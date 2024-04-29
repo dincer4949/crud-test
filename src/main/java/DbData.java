@@ -70,6 +70,9 @@ public class DbData {
     public int getHeaderListSize(){
         return headers.size();
     }
+    public int getConextListSize(){
+        return contexts.size();
+    }
 
     public void setHeader(String newHeader){
         try{
