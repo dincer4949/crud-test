@@ -4,11 +4,11 @@ import java.awt.event.ActionListener;
 import java.sql.Date;
 
 public class MainWindow {
-
+    public static JButton setDataBtn= new JButton("Set data");
     public static void start(){
-        JFrame f = new JFrame("test");
+        JFrame f = new JFrame("MainWindow");
         JTextArea tArea = new JTextArea();
-        JButton setDataBtn= new JButton("Set data");
+
         DbData db = new DbData();
 
         tArea.setSize(800,300);
