@@ -10,5 +10,9 @@ public class SetDataWindow {
         JTextArea tArea = new JTextArea();
         JButton setDataBtn= new JButton("Set data");
         DbData db = new DbData();
+
+
+        f.setVisible(true);
+        f.setSize(640,720);
     }
 }
