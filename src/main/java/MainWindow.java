@@ -38,7 +38,7 @@ public class MainWindow {
             @Override
             public void actionPerformed(ActionEvent e) {
                 db.getData();
-                tArea.setText("");
+                tArea.append("");
                 writeData();
             }
         });
