@@ -34,10 +34,10 @@ public class MainWindow {
             }
         });
 
-        refreshBtn.addActionListener(new ActionListener() {
+        refreshBtn.addActionListener(new ActionListener() {  /////////////////////    do the update shit
             @Override
             public void actionPerformed(ActionEvent e) {
-                db.getData();
+
                 tArea.append("");
                 writeData();
             }
