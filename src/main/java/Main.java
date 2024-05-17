@@ -16,7 +16,7 @@ public class Main {
     public static void main(String[] args) {
 
       //MainWindow.start();
-        SetDataWindow.SetDataStart();
+        SetDataWindow.start();
     }
     public static void intro(){
         System.out.println("-----------------------\n1)Get all datas\n2)Set a data\n3)Remove a data\n4)Quit\nWhat do u wanna do");

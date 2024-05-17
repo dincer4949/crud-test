@@ -30,7 +30,7 @@ public class MainWindow {
 
         setDataBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                SetDataWindow.SetDataStart();
+                SetDataWindow.start();
             }
         });
 
@@ -45,7 +45,7 @@ public class MainWindow {
 
         tArea.setEditable(false);
 
-        f.add(scrollPane); // add the scrollpane to the frame
+        f.add(scrollPane);
         f.add(setDataBtn);
         f.add(refreshBtn);
         f.setSize(1280,720);
