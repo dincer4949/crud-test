@@ -7,8 +7,8 @@ import java.sql.Date;
 public class SetDataWindow {
 
     static JTextPane tfHeader = new JTextPane();
-    static JTextArea tfContext = new JTextArea();
-    static JTextArea tfDate = new JTextArea();
+    static JTextPane tfContext = new JTextPane();
+    static JTextField tfDate = new JTextField();
     public static void start() {
         JFrame f = new JFrame("Set Data");
         //JTextArea tArea = new JTextArea();
@@ -22,12 +22,12 @@ public class SetDataWindow {
 
         hdr.setBounds(60, 10, 150, 50);
         tfHeader.setBounds(55, 50, 460, 40);
+        hdr.setLabelFor(tfHeader);
 
         cntxt.setBounds(60, 75, 150, 50);
         tfContext.setBounds(60, 115, 460, 300);
+        cntxt.setLabelFor(tfContext);
 
-
-        /////////////////////////////////// headers disappear when the text are clicked
         f.setVisible(true);
         f.add(hdr);
         f.add(cntxt);
@@ -35,5 +35,6 @@ public class SetDataWindow {
         f.add(tfContext);
         f.add(tfDate);
         f.setSize(640, 720);
+        f.setLayout(null);
     }
 }
