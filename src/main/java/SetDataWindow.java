@@ -8,14 +8,14 @@ public class SetDataWindow {
 
     static JTextPane tfHeader = new JTextPane();
     static JTextPane tfContext = new JTextPane();
-    static JTextField tfDate = new JTextField();
+    static JTextPane tfDate = new JTextPane();
     public static void start() {
         JFrame f = new JFrame("Set Data");
         //JTextArea tArea = new JTextArea();
         JLabel hdr, cntxt, date;
         hdr = new JLabel("Enter a header");
         cntxt = new JLabel("Enter a context");
-        date = new JLabel("Enter a date");
+        date = new JLabel("Enter a date (YYYY-MM-DD)");
 
         JButton setDataBtn = new JButton("Set data");
         DbData db = new DbData();
@@ -24,13 +24,18 @@ public class SetDataWindow {
         tfHeader.setBounds(55, 50, 460, 40);
         hdr.setLabelFor(tfHeader);
 
-        cntxt.setBounds(60, 75, 150, 50);
-        tfContext.setBounds(60, 115, 460, 300);
+        cntxt.setBounds(60, 85, 150, 50);
+        tfContext.setBounds(55, 125, 460, 420);
         cntxt.setLabelFor(tfContext);
+
+        date.setBounds(60,540,250,50);
+        tfDate.setBounds(55,580,150,20);
+        date.setLabelFor(tfDate);
 
         f.setVisible(true);
         f.add(hdr);
         f.add(cntxt);
+        f.add(date);
         f.add(tfHeader);
         f.add(tfContext);
         f.add(tfDate);
