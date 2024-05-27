@@ -15,7 +15,8 @@ public class Main {
     private static String myPass = "AVNS_b1GW5bgz7-zCbovjbiz";
     public static void main(String[] args) {
 
-      daWindow.start();
+      //MainWindow.start();
+        SetDataWindow.start();
     }
     public static void intro(){
         System.out.println("-----------------------\n1)Get all datas\n2)Set a data\n3)Remove a data\n4)Quit\nWhat do u wanna do");
@@ -61,7 +62,6 @@ public class Main {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
 
     }
 

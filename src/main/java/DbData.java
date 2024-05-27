@@ -15,6 +15,7 @@ public class DbData {
     private List<String> headers;
     private List<String> contexts;
     private List<Date> dates;
+    private List<Integer> ids;
    /* public DbData(String url, String user, String password) {
         url=dbUrl;
         user=dbUser;
@@ -32,7 +33,30 @@ public class DbData {
         headers = new ArrayList<>();
         contexts = new ArrayList<>();
         dates = new ArrayList<>();
+        ids = new ArrayList<>();
 
+        getData();
+    }
+
+    public String getHeader(int index){
+        return headers.get(index);
+    }
+
+    public String getContext(int index){
+        return contexts.get(index);
+    }
+    public Date getDate(int index){
+        return dates.get(index);
+    }
+   public Integer getId(int index){return ids.get(index);}
+    public int getHeaderListSize(){
+        return headers.size();
+    }
+    public int getConextListSize(){
+        return contexts.size();
+    }
+
+    public void getData(){
         dbUrl="jdbc:mysql://avnadmin:AVNS_b1GW5bgz7-zCbovjbiz@approject-dannyzincher-a05d.b.aivencloud.com:28101/defaultdb?ssl-mode=REQUIRED";
         dbUser="avnadmin";
         dbPass="AVNS_b1GW5bgz7-zCbovjbiz";
@@ -52,17 +76,6 @@ public class DbData {
         }catch (SQLException e){
             System.out.println(e);
         }
-    }
-
-    public String getHeader(int index){
-        return headers.get(index);
-    }
-
-    public String getContext(){
-        return context;
-    }
-    public Date getDate(){
-        return date;
     }
 
     public void setHeader(String newHeader){
