@@ -34,6 +34,13 @@ public class SetDataWindow {
 
         saveBtn.setBounds(55,610,150,50);
 
+        saveBtn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                db.setAllData(tfHeader.getText(),tfContext.getText(),Date.valueOf(tfDate.getText()));
+
+            }
+        });
+
         f.setVisible(true);
         f.add(hdr);
         f.add(cntxt);
@@ -41,6 +48,7 @@ public class SetDataWindow {
         f.add(tfHeader);
         f.add(tfContext);
         f.add(tfDate);
+        f.add(saveBtn);
         f.setSize(640, 720);
         f.setLayout(null);
     }

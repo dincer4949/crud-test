@@ -15,7 +15,7 @@ public class DbData {
     private List<String> headers;
     private List<String> contexts;
     private List<Date> dates;
-    private List<Integer> ids;
+    //private List<Integer> ids;
    /* public DbData(String url, String user, String password) {
         url=dbUrl;
         user=dbUser;
@@ -33,12 +33,13 @@ public class DbData {
         headers = new ArrayList<>();
         contexts = new ArrayList<>();
         dates = new ArrayList<>();
-        ids = new ArrayList<>();
+        //ids = new ArrayList<>();
 
         getData();
     }
 
     public String getHeader(int index){
+
         return headers.get(index);
     }
 
@@ -48,7 +49,7 @@ public class DbData {
     public Date getDate(int index){
         return dates.get(index);
     }
-   public Integer getId(int index){return ids.get(index);}
+  // public Integer getId(int index){return ids.get(index);}
     public int getHeaderListSize(){
         return headers.size();
     }
@@ -65,6 +66,9 @@ public class DbData {
             Connection con = DriverManager.getConnection(dbUrl, dbUser, dbPass);
             PreparedStatement prestmt = con.prepareStatement("SELECT * FROM blog");
             ResultSet rs = prestmt.executeQuery();
+            headers.clear();
+            contexts.clear();
+            dates.clear();
             while(rs.next()){
 
                 headers.add(rs.getString("header"));
@@ -78,12 +82,14 @@ public class DbData {
         }
     }
 
-    public void setHeader(String newHeader){
+    public void setAllData(String newHeader,String newContext,Date newDate){
         try{
             Connection con = DriverManager.getConnection(dbUrl, dbUser, dbPass);
-            PreparedStatement prestmt = con.prepareStatement("INSERT INTO `blog`(header) VALUES (?) ");
+            PreparedStatement prestmt = con.prepareStatement("INSERT INTO `blog`(header, context, date) VALUES (?,?,?) ");
 
             prestmt.setString(1,newHeader);
+            prestmt.setString(2,newContext);
+            prestmt.setDate(3,newDate);
 
             prestmt.executeUpdate();
 
@@ -92,33 +98,7 @@ public class DbData {
         }
     }
 
-    public void setContext(String newContext){
-        try{
-            Connection con = DriverManager.getConnection(dbUrl, dbUser, dbPass);
-            PreparedStatement prestmt = con.prepareStatement("INSERT INTO `blog`(context) VALUES (?) ");
 
-            prestmt.setString(1,newContext);
-
-            prestmt.executeUpdate();
-
-        }catch(SQLException e){
-            throw new RuntimeException(e);
-        }
-    }
-
-    public void setDate(Date newDate){
-        try{
-            Connection con = DriverManager.getConnection(dbUrl, dbUser, dbPass);
-            PreparedStatement prestmt = con.prepareStatement("INSERT INTO `blog`(date) VALUES (?) ");
-
-            prestmt.setDate(1,newDate);
-
-            int rowsAffected = prestmt.executeUpdate();
-
-        }catch(SQLException e){
-            throw new RuntimeException(e);
-        }
-    }
 
 
 }
