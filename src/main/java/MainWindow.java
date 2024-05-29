@@ -37,7 +37,8 @@ public class MainWindow {
         refreshBtn.addActionListener(new ActionListener() {  /////////////////////    do the update shit
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                tArea.setText("");
+                db.getData();
                 tArea.append("");
                 writeData();
             }
