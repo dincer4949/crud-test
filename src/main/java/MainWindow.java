@@ -46,6 +46,13 @@ public class MainWindow {
             }
         });
 
+        removeBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                RemoveData.start();
+            }
+        });
+
         tArea.setEditable(false);
 
         f.add(scrollPane);

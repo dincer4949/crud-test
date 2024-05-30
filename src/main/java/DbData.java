@@ -99,6 +99,18 @@ public class DbData {
 
     public void removeAllData(Integer theId){
 
+        try{
+            Connection con = DriverManager.getConnection(dbUrl, dbUser, dbPass);
+            PreparedStatement prestmt = con.prepareStatement("DELETE FROM blog WHERE id=?; ");
+
+            prestmt.setInt(1,theId);
+
+            prestmt.executeUpdate();
+
+        }catch(SQLException e){
+            throw new RuntimeException(e);
+        }
+
     }
 
 
