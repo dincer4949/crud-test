@@ -13,7 +13,7 @@ public class MainWindow {
             String header = db.getHeader(i);
             String context = db.getContext(i);
             Date date = db.getDate(i);
-            tArea.append("Header " + i + ": " + header +"\nDate: "+ date + "\nContext: "+context+"\n\n\n");
+            tArea.append("Header " + ": " + header +"\nDate: "+ date + "\nContext: "+context+"\nID: "+db.getId(i)+"\n\n\n");
         }
     }
     public static void start(){
