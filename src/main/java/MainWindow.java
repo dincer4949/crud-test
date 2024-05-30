@@ -6,6 +6,7 @@ import java.sql.Date;
 public class MainWindow {
     public static JButton setDataBtn= new JButton("Set data");
     public static JButton refreshBtn= new JButton("Refresh Data");
+    public static JButton removeBtn= new JButton("Remove Data");
     static JTextArea tArea = new JTextArea();
     static DbData db = new DbData();
     public static void writeData(){
@@ -25,12 +26,13 @@ public class MainWindow {
 
         setDataBtn.setBounds(60,620, 150,50);
         refreshBtn.setBounds(250,620, 150,50);
+        removeBtn.setBounds(250+(250-60),620, 150,50);
 
         writeData();
 
         setDataBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                SetDataWindow.start();
+                SaveDataWindow.start();
             }
         });
 
@@ -49,6 +51,7 @@ public class MainWindow {
         f.add(scrollPane);
         f.add(setDataBtn);
         f.add(refreshBtn);
+        f.add(removeBtn);
         f.setSize(1280,720);
         f.setLayout(null);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -80,20 +80,25 @@ public class DbData {
         }
     }
 
-    public void setAllData(String newHeader,String newContext,Date newDate){
+    public void setAllData(String newHeader,String newContext,Date newDate, Integer newId){
         try{
             Connection con = DriverManager.getConnection(dbUrl, dbUser, dbPass);
-            PreparedStatement prestmt = con.prepareStatement("INSERT INTO `blog`(header, context, date) VALUES (?,?,?) ");
+            PreparedStatement prestmt = con.prepareStatement("INSERT INTO `blog`(header, context, date, id) VALUES (?,?,?,?) ");
 
             prestmt.setString(1,newHeader);
             prestmt.setString(2,newContext);
             prestmt.setDate(3,newDate);
+            prestmt.setInt(4,newId);
 
             prestmt.executeUpdate();
 
         }catch(SQLException e){
             throw new RuntimeException(e);
         }
+    }
+
+    public void removeAllData(Integer theId){
+
     }
 
 
