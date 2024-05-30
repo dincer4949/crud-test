@@ -19,9 +19,9 @@ public class MainWindow {
     public static void start(){
         JFrame f = new JFrame("MainWindow");
 
-        tArea.setBounds(10, 10, 1160, 580); // set the bounds of the textarea
+        tArea.setBounds(10, 10, 1260, 580); // set the bounds of the textarea
         JScrollPane scrollPane = new JScrollPane(tArea); // create a scrollpane with the textarea
-        scrollPane.setBounds(10, 10, 1160, 580); // set the bounds of the scrollpane
+        scrollPane.setBounds(10, 10, 1260, 580); // set the bounds of the scrollpane
 
         setDataBtn.setBounds(60,620, 150,50);
         refreshBtn.setBounds(250,620, 150,50);
